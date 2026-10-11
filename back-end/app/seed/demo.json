@@ -1,0 +1,489 @@
+{
+  "employers": [
+    {
+      "email": "hr@radius-soft.example",
+      "full_name": "Ковалёва Анастасия Игоревна",
+      "company_name": "Радиус Софт"
+    },
+    {
+      "email": "talents@aerosfera.example",
+      "full_name": "Громов Павел Евгеньевич",
+      "company_name": "Аэросфера"
+    },
+    {
+      "email": "hiring@zashchita-plus.example",
+      "full_name": "Сафина Лилия Маратовна",
+      "company_name": "Защита Плюс"
+    }
+  ],
+  "candidates": [
+    {
+      "email": "artem.ivanov@mail.example",
+      "full_name": "Иванов Артём Сергеевич",
+      "headline": "Backend-разработчик Go, высоконагруженные сервисы",
+      "city": "Москва",
+      "grade": "senior",
+      "team_role": "backend",
+      "work_format": "hybrid",
+      "salary_expectation": 340000,
+      "skills": [
+        "Go",
+        "PostgreSQL",
+        "Kafka",
+        "Kubernetes",
+        "gRPC"
+      ],
+      "about": "6 лет в разработке платёжных сервисов. Капитан команды на Чемпионате России по спортивному программированию.",
+      "fsp_participant_id": "FSP-1001",
+      "open_to_offers": true
+    },
+    {
+      "email": "elizaveta.kim@mail.example",
+      "full_name": "Ким Елизавета Олеговна",
+      "headline": "Frontend-разработчик Vue / TypeScript",
+      "city": "Новосибирск",
+      "grade": "middle",
+      "team_role": "frontend",
+      "work_format": "remote",
+      "salary_expectation": 220000,
+      "skills": [
+        "Vue 3",
+        "TypeScript",
+        "Nuxt",
+        "Pinia",
+        "Figma"
+      ],
+      "about": "Делаю интерфейсы для B2B-продуктов. Победитель Чемпионата России по продуктовому программированию 2025.",
+      "fsp_participant_id": "FSP-1002",
+      "open_to_offers": true
+    },
+    {
+      "email": "timur.garipov@mail.example",
+      "full_name": "Гарипов Тимур Ринатович",
+      "headline": "Пентестер, анализ защищённости веб-приложений",
+      "city": "Казань",
+      "grade": "middle",
+      "team_role": "security",
+      "work_format": "hybrid",
+      "salary_expectation": 260000,
+      "skills": [
+        "Pentest",
+        "Burp Suite",
+        "Python",
+        "OWASP",
+        "Linux"
+      ],
+      "about": "Специализируюсь на тестировании на проникновение и CTF-соревнованиях.",
+      "fsp_participant_id": "FSP-1003",
+      "open_to_offers": true
+    },
+    {
+      "email": "daria.orlova@mail.example",
+      "full_name": "Орлова Дарья Викторовна",
+      "headline": "Junior-программист робототехнических систем",
+      "city": "Екатеринбург",
+      "grade": "junior",
+      "team_role": "embedded",
+      "work_format": "office",
+      "salary_expectation": 110000,
+      "skills": [
+        "C++",
+        "ROS 2",
+        "Python",
+        "OpenCV"
+      ],
+      "about": "Студентка УрФУ, программирую мобильных роботов.",
+      "fsp_participant_id": "FSP-1004",
+      "open_to_offers": true
+    },
+    {
+      "email": "nikita.belov@mail.example",
+      "full_name": "Белов Никита Андреевич",
+      "headline": "Разработчик ПО для беспилотных авиационных систем",
+      "city": "Самара",
+      "grade": "middle",
+      "team_role": "embedded",
+      "work_format": "office",
+      "salary_expectation": 240000,
+      "skills": [
+        "C++",
+        "ROS 2",
+        "PX4",
+        "MAVLink",
+        "Linux"
+      ],
+      "about": "Пишу полётные контроллеры и системы навигации для БАС.",
+      "fsp_participant_id": "FSP-1005",
+      "open_to_offers": true
+    },
+    {
+      "email": "anna.smirnova@mail.example",
+      "full_name": "Смирнова Анна Павловна",
+      "headline": "Fullstack-разработчик Python / Vue",
+      "city": "Санкт-Петербург",
+      "grade": "middle",
+      "team_role": "fullstack",
+      "work_format": "remote",
+      "salary_expectation": 230000,
+      "skills": [
+        "Python",
+        "FastAPI",
+        "Vue 3",
+        "PostgreSQL",
+        "Docker"
+      ],
+      "about": "Люблю доводить продукт от идеи до продакшена.",
+      "fsp_participant_id": "FSP-1006",
+      "open_to_offers": true
+    },
+    {
+      "email": "gleb.petrov@mail.example",
+      "full_name": "Петров Глеб Максимович",
+      "headline": "Senior backend / алгоритмы и высокие нагрузки",
+      "city": "Москва",
+      "grade": "senior",
+      "team_role": "backend",
+      "work_format": "remote",
+      "salary_expectation": 400000,
+      "skills": [
+        "C++",
+        "Go",
+        "Алгоритмы",
+        "ClickHouse",
+        "Linux"
+      ],
+      "about": "Мастер спорта по спортивному программированию. Интересны задачи с высокой алгоритмической сложностью.",
+      "fsp_participant_id": "FSP-1007",
+      "open_to_offers": true
+    },
+    {
+      "email": "polina.zakharova@mail.example",
+      "full_name": "Захарова Полина Игоревна",
+      "headline": "Junior продуктовый аналитик-разработчик",
+      "city": "Краснодар",
+      "grade": "junior",
+      "team_role": "fullstack",
+      "work_format": "hybrid",
+      "salary_expectation": 90000,
+      "skills": [
+        "SQL",
+        "Python",
+        "JavaScript",
+        "Power BI"
+      ],
+      "about": "Начинаю путь в продуктовой разработке, участвую в соревнованиях ФСП.",
+      "fsp_participant_id": "FSP-1008",
+      "open_to_offers": true
+    },
+    {
+      "email": "aidar.mukhametov@mail.example",
+      "full_name": "Мухаметов Айдар Ильдарович",
+      "headline": "Security-инженер, Red Team",
+      "city": "Уфа",
+      "grade": "senior",
+      "team_role": "security",
+      "work_format": "remote",
+      "salary_expectation": 330000,
+      "skills": [
+        "Red Team",
+        "Active Directory",
+        "Python",
+        "Reverse engineering"
+      ],
+      "about": "Победитель Кубка России по программированию систем ИБ.",
+      "fsp_participant_id": "FSP-1009",
+      "open_to_offers": true
+    },
+    {
+      "email": "ksenia.volkova@mail.example",
+      "full_name": "Волкова Ксения Дмитриевна",
+      "headline": "Программист робототехники, компьютерное зрение",
+      "city": "Нижний Новгород",
+      "grade": "middle",
+      "team_role": "embedded",
+      "work_format": "hybrid",
+      "salary_expectation": 170000,
+      "skills": [
+        "C++",
+        "Python",
+        "OpenCV",
+        "ROS 2",
+        "PyTorch"
+      ],
+      "about": "Капитан команды робототехников, призёр всероссийских соревнований.",
+      "fsp_participant_id": "FSP-1010",
+      "open_to_offers": true
+    },
+    {
+      "email": "ilya.fedorov@mail.example",
+      "full_name": "Федоров Илья Константинович",
+      "headline": "Backend-разработчик Python, продуктовые команды",
+      "city": "Уфа",
+      "grade": "middle",
+      "team_role": "backend",
+      "work_format": "remote",
+      "salary_expectation": 210000,
+      "skills": [
+        "Python",
+        "Django",
+        "PostgreSQL",
+        "Redis",
+        "Celery"
+      ],
+      "about": "Backend в продуктовых командах, победитель Чемпионата России по продуктовому программированию.",
+      "fsp_participant_id": "FSP-1011",
+      "open_to_offers": true
+    },
+    {
+      "email": "egor.lebedev@mail.example",
+      "full_name": "Лебедев Егор Романович",
+      "headline": "Начинающий программист БАС и робототехники",
+      "city": "Воронеж",
+      "grade": "junior",
+      "team_role": "embedded",
+      "work_format": "office",
+      "salary_expectation": 80000,
+      "skills": [
+        "Python",
+        "C",
+        "Arduino"
+      ],
+      "about": "Школьник-выпускник, хочу развиваться в программировании беспилотников.",
+      "fsp_participant_id": "FSP-1013",
+      "open_to_offers": true
+    },
+    {
+      "email": "denis.kuznetsov@mail.example",
+      "full_name": "Кузнецов Денис Алексеевич",
+      "headline": "Java-разработчик, интеграции и микросервисы",
+      "city": "Москва",
+      "grade": "middle",
+      "team_role": "backend",
+      "work_format": "office",
+      "salary_expectation": 250000,
+      "skills": [
+        "Java",
+        "Spring Boot",
+        "PostgreSQL",
+        "Kafka"
+      ],
+      "about": "5 лет в банковской разработке. В соревнованиях ФСП пока не участвовал.",
+      "fsp_participant_id": null,
+      "open_to_offers": true
+    },
+    {
+      "email": "vera.nikolaeva@mail.example",
+      "full_name": "Николаева Вера Сергеевна",
+      "headline": "QA-инженер, автоматизация тестирования",
+      "city": "Пермь",
+      "grade": "middle",
+      "team_role": "qa",
+      "work_format": "remote",
+      "salary_expectation": 160000,
+      "skills": [
+        "Python",
+        "Pytest",
+        "Playwright",
+        "Allure"
+      ],
+      "about": "Сейчас не рассматриваю предложения.",
+      "fsp_participant_id": null,
+      "open_to_offers": false
+    }
+  ],
+  "vacancies": [
+    {
+      "key": "radius-go",
+      "employer": "hr@radius-soft.example",
+      "title": "Backend-разработчик (Go), платёжное ядро",
+      "discipline_code": "algorithmic",
+      "grade": "senior",
+      "work_format": "hybrid",
+      "salary_from": 300000,
+      "salary_to": 400000,
+      "skills": [
+        "Go",
+        "PostgreSQL",
+        "Kafka"
+      ],
+      "description": "Развитие процессинга платежей: 5 000 RPS, требования к задержкам до 50 мс."
+    },
+    {
+      "key": "radius-vue",
+      "employer": "hr@radius-soft.example",
+      "title": "Frontend-разработчик (Vue 3)",
+      "discipline_code": "product",
+      "grade": "middle",
+      "work_format": "remote",
+      "salary_from": 180000,
+      "salary_to": 250000,
+      "skills": [
+        "Vue 3",
+        "TypeScript",
+        "Pinia"
+      ],
+      "description": "Личный кабинет бизнеса: платежи, отчёты, интеграции."
+    },
+    {
+      "key": "aero-uav",
+      "employer": "talents@aerosfera.example",
+      "title": "Инженер-программист БАС (C++ / ROS 2)",
+      "discipline_code": "uav",
+      "grade": "middle",
+      "work_format": "office",
+      "salary_from": 200000,
+      "salary_to": 280000,
+      "skills": [
+        "C++",
+        "ROS 2",
+        "PX4"
+      ],
+      "description": "Навигация и автономные миссии для грузовых беспилотников."
+    },
+    {
+      "key": "aero-robot",
+      "employer": "talents@aerosfera.example",
+      "title": "Программист робототехнических комплексов",
+      "discipline_code": "robotics",
+      "grade": "junior",
+      "work_format": "office",
+      "salary_from": 120000,
+      "salary_to": 170000,
+      "skills": [
+        "C++",
+        "Python",
+        "OpenCV"
+      ],
+      "description": "Наземные роботы для обслуживания площадок БАС."
+    },
+    {
+      "key": "zp-pentest",
+      "employer": "hiring@zashchita-plus.example",
+      "title": "Специалист по анализу защищённости (Pentest)",
+      "discipline_code": "security",
+      "grade": "middle",
+      "work_format": "hybrid",
+      "salary_from": 220000,
+      "salary_to": 320000,
+      "skills": [
+        "Pentest",
+        "Burp Suite",
+        "Python"
+      ],
+      "description": "Внешние и внутренние пентесты для промышленных заказчиков."
+    }
+  ],
+  "offers": [
+    {
+      "vacancy": "radius-go",
+      "candidate": "artem.ivanov@mail.example",
+      "salary": 360000,
+      "message": "Артём, видим ваш опыт в Go и призовое место на Чемпионате России. Предлагаем обсудить роль в платёжном ядре.",
+      "sent_days_ago": 12,
+      "status": "accepted",
+      "respond_after_hours": 20,
+      "view_after_hours": null,
+      "decline_reason": null
+    },
+    {
+      "vacancy": "radius-go",
+      "candidate": "gleb.petrov@mail.example",
+      "salary": 400000,
+      "message": "Глеб, нам нужен человек уровня мастера спорта для алгоритмически сложного процессинга.",
+      "sent_days_ago": 10,
+      "status": "declined",
+      "respond_after_hours": 30,
+      "view_after_hours": null,
+      "decline_reason": "Рассматриваю только полностью удалённый формат работы"
+    },
+    {
+      "vacancy": "radius-vue",
+      "candidate": "elizaveta.kim@mail.example",
+      "salary": 240000,
+      "message": "Елизавета, понравились ваши работы на Чемпионате по продуктовому программированию — ждём в команде личного кабинета.",
+      "sent_days_ago": 3,
+      "status": "viewed",
+      "respond_after_hours": null,
+      "view_after_hours": 5,
+      "decline_reason": null
+    },
+    {
+      "vacancy": "radius-vue",
+      "candidate": "ilya.fedorov@mail.example",
+      "salary": 220000,
+      "message": "Илья, предлагаем роль во frontend-команде с перспективой fullstack.",
+      "sent_days_ago": 1,
+      "status": "sent",
+      "respond_after_hours": null,
+      "view_after_hours": null,
+      "decline_reason": null
+    },
+    {
+      "vacancy": "radius-vue",
+      "candidate": "anna.smirnova@mail.example",
+      "salary": 200000,
+      "message": "Анна, ваш fullstack-опыт и результаты ФСП нам близки — давайте познакомимся.",
+      "sent_days_ago": 8,
+      "status": "declined",
+      "respond_after_hours": 6,
+      "view_after_hours": null,
+      "decline_reason": "Предложенная зарплата ниже моих ожиданий"
+    },
+    {
+      "vacancy": "aero-uav",
+      "candidate": "nikita.belov@mail.example",
+      "salary": 260000,
+      "message": "Никита, ваш опыт с PX4 и финал всероссийских соревнований по БАС — то, что мы ищем.",
+      "sent_days_ago": 9,
+      "status": "accepted",
+      "respond_after_hours": 4,
+      "view_after_hours": null,
+      "decline_reason": null
+    },
+    {
+      "vacancy": "aero-robot",
+      "candidate": "ksenia.volkova@mail.example",
+      "salary": 165000,
+      "message": "Ксения, приглашаем в команду наземной робототехники, будет много компьютерного зрения.",
+      "sent_days_ago": 2,
+      "status": "sent",
+      "respond_after_hours": null,
+      "view_after_hours": null,
+      "decline_reason": null
+    },
+    {
+      "vacancy": "zp-pentest",
+      "candidate": "timur.garipov@mail.example",
+      "salary": 290000,
+      "message": "Тимур, впечатлили ваши результаты в CTF. Предлагаем присоединиться к команде пентеста.",
+      "sent_days_ago": 4,
+      "status": "viewed",
+      "respond_after_hours": null,
+      "view_after_hours": 12,
+      "decline_reason": null
+    },
+    {
+      "vacancy": "zp-pentest",
+      "candidate": "aidar.mukhametov@mail.example",
+      "salary": 320000,
+      "message": "Айдар, предлагаем лидировать направление Red Team.",
+      "sent_days_ago": 7,
+      "status": "declined",
+      "respond_after_hours": 48,
+      "view_after_hours": null,
+      "decline_reason": "Уже принял предложение другой компании"
+    }
+  ],
+  "extra_profile_views": {
+    "hr@radius-soft.example": [
+      "denis.kuznetsov@mail.example",
+      "polina.zakharova@mail.example",
+      "daria.orlova@mail.example"
+    ],
+    "talents@aerosfera.example": [
+      "egor.lebedev@mail.example",
+      "daria.orlova@mail.example"
+    ],
+    "hiring@zashchita-plus.example": []
+  }
+}

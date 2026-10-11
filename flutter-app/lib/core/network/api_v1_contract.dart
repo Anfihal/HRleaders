@@ -1,0 +1,1088 @@
+// GENERATED from api (2).json by tool/generate_api_contract.py.
+// Do not edit by hand; regenerate after changing the OpenAPI contract.
+import '../models/api_models.dart';
+import 'api_client.dart';
+
+final class ApiParameter {
+  const ApiParameter({
+    this.type,
+    this.format,
+    this.allowedValues = const {},
+    this.minLength,
+    this.maxLength,
+    this.minimum,
+    this.maximum,
+    this.exclusiveMinimum,
+    this.exclusiveMaximum,
+    this.pattern,
+  });
+  final String? type;
+  final String? format;
+  final Set<String> allowedValues;
+  final int? minLength;
+  final int? maxLength;
+  final num? minimum;
+  final num? maximum;
+  final num? exclusiveMinimum;
+  final num? exclusiveMaximum;
+  final String? pattern;
+
+  void validate(String name, String value) {
+    if (format == 'uuid' && !RegExp(r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$').hasMatch(value)) {
+      throw ArgumentError.value(value, name, 'Expected a UUID');
+    }
+    if (type == 'string' &&
+        ((minLength != null && value.length < minLength!) ||
+         (maxLength != null && value.length > maxLength!) ||
+         (pattern != null && !RegExp(pattern!).hasMatch(value)))) {
+      throw ArgumentError.value(value, name, 'Value does not match the OpenAPI constraint');
+    }
+    if (type == 'integer' && int.tryParse(value) == null) {
+      throw ArgumentError.value(value, name, 'Expected an integer');
+    }
+    if (type == 'number' && num.tryParse(value) == null) {
+      throw ArgumentError.value(value, name, 'Expected a number');
+    }
+    if (type == 'boolean' && value != 'true' && value != 'false') {
+      throw ArgumentError.value(value, name, 'Expected a boolean');
+    }
+    if (allowedValues.isNotEmpty && !allowedValues.contains(value)) {
+      throw ArgumentError.value(value, name, 'Value is not an allowed enum member');
+    }
+    final numericValue = num.tryParse(value);
+    if (numericValue != null &&
+        ((minimum != null && numericValue < minimum!) ||
+         (maximum != null && numericValue > maximum!) ||
+         (exclusiveMinimum != null && numericValue <= exclusiveMinimum!) ||
+         (exclusiveMaximum != null && numericValue >= exclusiveMaximum!))) {
+      throw ArgumentError.value(value, name, 'Value is outside the OpenAPI range');
+    }
+  }
+}
+
+final class ApiOperation {
+  const ApiOperation({
+    required this.method,
+    required this.pathTemplate,
+    required this.pathParameters,
+    required this.queryParameters,
+    required this.requiredQueryParameters,
+    required this.acceptsBody,
+    required this.requiredBody,
+    required this.requestBodySchema,
+    required this.pathParameterRules,
+    required this.queryParameterRules,
+    required this.successStatuses,
+    required this.errorStatuses,
+  });
+  final String method;
+  final String pathTemplate;
+  final Set<String> pathParameters;
+  final Set<String> queryParameters;
+  final Set<String> requiredQueryParameters;
+  final bool acceptsBody;
+  final bool requiredBody;
+  final String? requestBodySchema;
+  final Map<String, ApiParameter> pathParameterRules;
+  final Map<String, ApiParameter> queryParameterRules;
+  final Set<int> successStatuses;
+  final Set<int> errorStatuses;
+
+  String resolvePath(Map<String, String> values) {
+    if (!values.keys.toSet().containsAll(pathParameters) ||
+        !pathParameters.containsAll(values.keys)) {
+      throw ArgumentError.value(values, 'pathParameters', 'Path parameters do not match the OpenAPI operation');
+    }
+    var path = pathTemplate;
+    for (final name in pathParameters) {
+      final value = values[name]!;
+      if (value.isEmpty) throw ArgumentError.value(value, name, 'Path values must not be empty');
+      pathParameterRules[name]?.validate(name, value);
+      path = path.replaceAll('{$name}', Uri.encodeComponent(value));
+    }
+    return path;
+  }
+
+  void validate({
+    required Map<String, String> pathParameters,
+    required Map<String, String> query,
+    required Object? body,
+  }) {
+    resolvePath(pathParameters);
+    final unknownQuery = query.keys.toSet().difference(queryParameters);
+    if (unknownQuery.isNotEmpty) throw ArgumentError.value(unknownQuery, 'query', 'Unsupported query parameters');
+    final missingQuery = requiredQueryParameters.difference(query.keys.toSet());
+    if (missingQuery.isNotEmpty) throw ArgumentError.value(missingQuery, 'query', 'Missing required query parameters');
+    for (final entry in query.entries) {
+      queryParameterRules[entry.key]?.validate(entry.key, entry.value);
+    }
+    if (!acceptsBody && body != null) throw ArgumentError.value(body, 'body', 'This operation does not accept a request body');
+    if (requiredBody && body == null) throw ArgumentError.notNull('body');
+    if (body != null && requestBodySchema != null &&
+        (body is! ApiJsonModel || body.schemaName != requestBodySchema)) {
+      throw ArgumentError.value(body, 'body', 'Expected the $requestBodySchema request model');
+    }
+    if (body != null && requestBodySchema == null &&
+        body is! ApiJsonModel && body is! Map) {
+      throw ArgumentError.value(body, 'body', 'Expected a JSON object');
+    }
+  }
+}
+
+final Map<String, ApiOperation> apiV1Operations = Map<String, ApiOperation>.unmodifiable({
+  'register_api_v1_auth_register_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'auth/register',
+    pathParameters: const {},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: true,
+    requiredBody: true,
+    requestBodySchema: 'RegisterRequest',
+    pathParameterRules: const {},
+    queryParameterRules: const {},
+    successStatuses: const {201},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'login_api_v1_auth_login_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'auth/login',
+    pathParameters: const {},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: true,
+    requiredBody: true,
+    requestBodySchema: 'LoginRequest',
+    pathParameterRules: const {},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'logout_api_v1_auth_logout_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'auth/logout',
+    pathParameters: const {},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {},
+    queryParameterRules: const {},
+    successStatuses: const {204},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'me_api_v1_auth_me_get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'auth/me',
+    pathParameters: const {},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'get_my_profile_api_v1_candidates_me_get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'candidates/me',
+    pathParameters: const {},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'update_my_profile_api_v1_candidates_me_put': ApiOperation(
+    method: 'PUT',
+    pathTemplate: 'candidates/me',
+    pathParameters: const {},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: true,
+    requiredBody: true,
+    requestBodySchema: 'ProfileUpdateRequest',
+    pathParameterRules: const {},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'sync_fsp_achievements_api_v1_candidates_me_fsp_sync_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'candidates/me/fsp-sync',
+    pathParameters: const {},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'search_candidates_api_v1_candidates_get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'candidates',
+    pathParameters: const {},
+    queryParameters: const {'discipline', 'grade', 'limit', 'max_salary', 'min_level', 'offset', 'skill', 'team_role', 'verified_only', 'work_format'},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {},
+    queryParameterRules: const {'discipline': ApiParameter(type: 'string'), 'min_level': ApiParameter(type: 'string'), 'grade': ApiParameter(type: 'string', allowedValues: const {'junior', 'middle', 'senior', 'lead'}), 'team_role': ApiParameter(type: 'string', allowedValues: const {'backend', 'frontend', 'fullstack', 'mobile', 'ml', 'devops', 'security', 'qa', 'embedded'}), 'work_format': ApiParameter(type: 'string', allowedValues: const {'office', 'hybrid', 'remote'}), 'skill': ApiParameter(type: 'string', maxLength: 80), 'max_salary': ApiParameter(type: 'integer', exclusiveMinimum: 0), 'verified_only': ApiParameter(type: 'boolean'), 'limit': ApiParameter(type: 'integer', exclusiveMinimum: 0), 'offset': ApiParameter(type: 'integer', minimum: 0)},
+    successStatuses: const {200},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'view_candidate_api_v1_candidates__profile_id__get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'candidates/{profile_id}',
+    pathParameters: const {'profile_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'profile_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'list_questions_api_v1_assessments_questions_get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'assessments/questions',
+    pathParameters: const {},
+    queryParameters: const {'discipline_code', 'target_grade'},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {},
+    queryParameterRules: const {'discipline_code': ApiParameter(type: 'string'), 'target_grade': ApiParameter(type: 'string')},
+    successStatuses: const {200},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'start_attempt_api_v1_assessments_attempts_start_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'assessments/attempts/start',
+    pathParameters: const {},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: true,
+    requiredBody: true,
+    requestBodySchema: 'StartAttemptRequest',
+    pathParameterRules: const {},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'submit_answer_api_v1_assessments_attempts__attempt_id__answers_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'assessments/attempts/{attempt_id}/answers',
+    pathParameters: const {'attempt_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: true,
+    requiredBody: true,
+    requestBodySchema: 'SubmitAnswerRequest',
+    pathParameterRules: const {'attempt_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'submit_attempt_api_v1_assessments_attempts__attempt_id__submit_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'assessments/attempts/{attempt_id}/submit',
+    pathParameters: const {'attempt_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'attempt_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'get_attempt_api_v1_assessments_attempts__attempt_id__get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'assessments/attempts/{attempt_id}',
+    pathParameters: const {'attempt_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'attempt_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'list_my_attempts_api_v1_assessments_attempts_get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'assessments/attempts',
+    pathParameters: const {},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'get_grade_history_api_v1_assessments_grade_history_get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'assessments/grade-history',
+    pathParameters: const {},
+    queryParameters: const {'discipline_code'},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {},
+    queryParameterRules: const {'discipline_code': ApiParameter(type: 'string')},
+    successStatuses: const {200},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'resolve_grade_api_v1_assessments_attempts__attempt_id__resolve_grade_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'assessments/attempts/{attempt_id}/resolve-grade',
+    pathParameters: const {'attempt_id'},
+    queryParameters: const {'current_grade', 'discipline_code'},
+    requiredQueryParameters: const {'discipline_code'},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'attempt_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {'discipline_code': ApiParameter(type: 'string'), 'current_grade': ApiParameter(type: 'string')},
+    successStatuses: const {200},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'generate_validation_api_v1_assessments_attempts__attempt_id__validation_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'assessments/attempts/{attempt_id}/validation',
+    pathParameters: const {'attempt_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'attempt_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'get_validation_report_api_v1_assessments_validation__attempt_id__get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'assessments/validation/{attempt_id}',
+    pathParameters: const {'attempt_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'attempt_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'get_stability_metrics_api_v1_assessments_stability__candidate_id__get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'assessments/stability/{candidate_id}',
+    pathParameters: const {'candidate_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'candidate_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'list_vacancies_api_v1_vacancies_get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'vacancies',
+    pathParameters: const {},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'publish_vacancy_api_v1_vacancies_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'vacancies',
+    pathParameters: const {},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: true,
+    requiredBody: true,
+    requestBodySchema: 'VacancyCreateRequest',
+    pathParameterRules: const {},
+    queryParameterRules: const {},
+    successStatuses: const {201},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'close_vacancy_api_v1_vacancies__vacancy_id__close_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'vacancies/{vacancy_id}/close',
+    pathParameters: const {'vacancy_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'vacancy_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'send_offer_api_v1_offers_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'offers',
+    pathParameters: const {},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: true,
+    requiredBody: true,
+    requestBodySchema: 'OfferCreateRequest',
+    pathParameterRules: const {},
+    queryParameterRules: const {},
+    successStatuses: const {201},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'list_sent_offers_api_v1_offers_get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'offers',
+    pathParameters: const {},
+    queryParameters: const {'status'},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {},
+    queryParameterRules: const {'status': ApiParameter(type: 'string', allowedValues: const {'sent', 'viewed', 'accepted', 'declined', 'withdrawn'})},
+    successStatuses: const {200},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'withdraw_offer_api_v1_offers__offer_id__withdraw_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'offers/{offer_id}/withdraw',
+    pathParameters: const {'offer_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'offer_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'list_incoming_offers_api_v1_offers_incoming_get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'offers/incoming',
+    pathParameters: const {},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'open_offer_api_v1_offers__offer_id__view_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'offers/{offer_id}/view',
+    pathParameters: const {'offer_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'offer_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'accept_offer_api_v1_offers__offer_id__accept_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'offers/{offer_id}/accept',
+    pathParameters: const {'offer_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'offer_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'decline_offer_api_v1_offers__offer_id__decline_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'offers/{offer_id}/decline',
+    pathParameters: const {'offer_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: true,
+    requiredBody: true,
+    requestBodySchema: 'OfferDeclineRequest',
+    pathParameterRules: const {'offer_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'employer_overview_api_v1_analytics_overview_get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'analytics/overview',
+    pathParameters: const {},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'get_dictionaries_api_v1_dictionaries_get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'dictionaries',
+    pathParameters: const {},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {401, 403, 404, 409, 422, 503},
+  ),
+  'settings_api_v1_recruiting_settings_get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'recruiting/settings',
+    pathParameters: const {},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {},
+  ),
+  'save_settings_api_v1_recruiting_settings_put': ApiOperation(
+    method: 'PUT',
+    pathTemplate: 'recruiting/settings',
+    pathParameters: const {},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: true,
+    requiredBody: true,
+    requestBodySchema: 'Configuration',
+    pathParameterRules: const {},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {422},
+  ),
+  'scenario_template_api_v1_recruiting_scenario_template_get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'recruiting/scenario-template',
+    pathParameters: const {},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {},
+  ),
+  'scenarios_api_v1_recruiting_scenarios_get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'recruiting/scenarios',
+    pathParameters: const {},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {},
+  ),
+  'create_scenario_api_v1_recruiting_scenarios_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'recruiting/scenarios',
+    pathParameters: const {},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: true,
+    requiredBody: true,
+    requestBodySchema: 'ScenarioInput',
+    pathParameterRules: const {},
+    queryParameterRules: const {},
+    successStatuses: const {201},
+    errorStatuses: const {422},
+  ),
+  'scenario_api_v1_recruiting_scenarios__entity_id__get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'recruiting/scenarios/{entity_id}',
+    pathParameters: const {'entity_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'entity_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {422},
+  ),
+  'update_scenario_api_v1_recruiting_scenarios__entity_id__put': ApiOperation(
+    method: 'PUT',
+    pathTemplate: 'recruiting/scenarios/{entity_id}',
+    pathParameters: const {'entity_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: true,
+    requiredBody: true,
+    requestBodySchema: 'ScenarioInput',
+    pathParameterRules: const {'entity_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {422},
+  ),
+  'duplicate_scenario_api_v1_recruiting_scenarios__entity_id__duplicate_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'recruiting/scenarios/{entity_id}/duplicate',
+    pathParameters: const {'entity_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'entity_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {201},
+    errorStatuses: const {422},
+  ),
+  'archive_scenario_api_v1_recruiting_scenarios__entity_id__archive_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'recruiting/scenarios/{entity_id}/archive',
+    pathParameters: const {'entity_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'entity_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {422},
+  ),
+  'avatars_api_v1_recruiting_avatars_get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'recruiting/avatars',
+    pathParameters: const {},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {},
+  ),
+  'create_avatar_api_v1_recruiting_avatars_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'recruiting/avatars',
+    pathParameters: const {},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: true,
+    requiredBody: true,
+    requestBodySchema: 'AvatarInput',
+    pathParameterRules: const {},
+    queryParameterRules: const {},
+    successStatuses: const {201},
+    errorStatuses: const {422},
+  ),
+  'update_avatar_api_v1_recruiting_avatars__entity_id__put': ApiOperation(
+    method: 'PUT',
+    pathTemplate: 'recruiting/avatars/{entity_id}',
+    pathParameters: const {'entity_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: true,
+    requiredBody: true,
+    requestBodySchema: 'AvatarUpdate',
+    pathParameterRules: const {'entity_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {422},
+  ),
+  'avatar_status_api_v1_recruiting_avatars__entity_id__get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'recruiting/avatars/{entity_id}',
+    pathParameters: const {'entity_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'entity_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {422},
+  ),
+  'generate_avatar_api_v1_recruiting_avatars__entity_id__generate_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'recruiting/avatars/{entity_id}/generate',
+    pathParameters: const {'entity_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'entity_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {422},
+  ),
+  'refresh_avatar_api_v1_recruiting_avatars__entity_id__refresh_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'recruiting/avatars/{entity_id}/refresh',
+    pathParameters: const {'entity_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'entity_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {422},
+  ),
+  'archive_avatar_api_v1_recruiting_avatars__entity_id__archive_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'recruiting/avatars/{entity_id}/archive',
+    pathParameters: const {'entity_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'entity_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {422},
+  ),
+  'image_api_v1_recruiting_avatars__entity_id__image_get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'recruiting/avatars/{entity_id}/image',
+    pathParameters: const {'entity_id'},
+    queryParameters: const {'interview_id'},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'entity_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {'interview_id': ApiParameter(type: 'string', format: 'uuid')},
+    successStatuses: const {200},
+    errorStatuses: const {422},
+  ),
+  'interviews_api_v1_recruiting_interviews_get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'recruiting/interviews',
+    pathParameters: const {},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {},
+  ),
+  'create_interview_api_v1_recruiting_interviews_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'recruiting/interviews',
+    pathParameters: const {},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: true,
+    requiredBody: true,
+    requestBodySchema: 'InterviewInput',
+    pathParameterRules: const {},
+    queryParameterRules: const {},
+    successStatuses: const {201},
+    errorStatuses: const {422},
+  ),
+  'interview_api_v1_recruiting_interviews__entity_id__get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'recruiting/interviews/{entity_id}',
+    pathParameters: const {'entity_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'entity_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {422},
+  ),
+  'start_interview_api_v1_recruiting_interviews__entity_id__start_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'recruiting/interviews/{entity_id}/start',
+    pathParameters: const {'entity_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: true,
+    requiredBody: true,
+    requestBodySchema: 'StartInput',
+    pathParameterRules: const {'entity_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {422},
+  ),
+  'answer_interview_api_v1_recruiting_interviews__entity_id__answer_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'recruiting/interviews/{entity_id}/answer',
+    pathParameters: const {'entity_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: true,
+    requiredBody: true,
+    requestBodySchema: 'AnswerInput',
+    pathParameterRules: const {'entity_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {422},
+  ),
+  'complete_interview_api_v1_recruiting_interviews__entity_id__complete_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'recruiting/interviews/{entity_id}/complete',
+    pathParameters: const {'entity_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'entity_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {422},
+  ),
+  'result_api_v1_recruiting_interviews__entity_id__result_get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'recruiting/interviews/{entity_id}/result',
+    pathParameters: const {'entity_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'entity_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {422},
+  ),
+  'cancel_interview_api_v1_recruiting_interviews__entity_id__cancel_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'recruiting/interviews/{entity_id}/cancel',
+    pathParameters: const {'entity_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'entity_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {422},
+  ),
+  'retry_evaluation_api_v1_recruiting_interviews__entity_id__evaluation_retry_post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'recruiting/interviews/{entity_id}/evaluation/retry',
+    pathParameters: const {'entity_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'entity_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {422},
+  ),
+  'runtime_session_api_v1_recruiting_interviews__entity_id__session_get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'recruiting/interviews/{entity_id}/session',
+    pathParameters: const {'entity_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'entity_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {422},
+  ),
+  'connection_command_api_v1_recruiting_interviews__entity_id__session__action__post': ApiOperation(
+    method: 'POST',
+    pathTemplate: 'recruiting/interviews/{entity_id}/session/{action}',
+    pathParameters: const {'action', 'entity_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'entity_id': ApiParameter(type: 'string', format: 'uuid'), 'action': ApiParameter(type: 'string', allowedValues: const {'reconnect', 'connect', 'error'})},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {422},
+  ),
+  'transcript_api_v1_recruiting_interviews__entity_id__transcript_get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'recruiting/interviews/{entity_id}/transcript',
+    pathParameters: const {'entity_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'entity_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {422},
+  ),
+  'session_events_api_v1_recruiting_interviews__entity_id__events_get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'recruiting/interviews/{entity_id}/events',
+    pathParameters: const {'entity_id'},
+    queryParameters: const {'after', 'limit'},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'entity_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {'after': ApiParameter(type: 'integer', minimum: 0), 'limit': ApiParameter(type: 'integer', minimum: 1, maximum: 500)},
+    successStatuses: const {200},
+    errorStatuses: const {422},
+  ),
+  'job_status_api_v1_recruiting_jobs__job_id__get': ApiOperation(
+    method: 'GET',
+    pathTemplate: 'recruiting/jobs/{job_id}',
+    pathParameters: const {'job_id'},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {'job_id': ApiParameter(type: 'string', format: 'uuid')},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {422},
+  ),
+  'health_api_health_get': ApiOperation(
+    method: 'GET',
+    pathTemplate: '/api/health',
+    pathParameters: const {},
+    queryParameters: const {},
+    requiredQueryParameters: const {},
+    acceptsBody: false,
+    requiredBody: false,
+    requestBodySchema: null,
+    pathParameterRules: const {},
+    queryParameterRules: const {},
+    successStatuses: const {200},
+    errorStatuses: const {},
+  ),
+});
+
+final class ApiV1Client {
+  const ApiV1Client(this._client);
+  final ApiClient _client;
+
+  Future<T> execute<T>(
+    String operationId, {
+    Map<String, String> pathParameters = const {},
+    Map<String, String> query = const {},
+    Object? body,
+    required T Function(Object?) decode,
+  }) async {
+    final operation = _operation(operationId);
+    operation.validate(pathParameters: pathParameters, query: query, body: body);
+    final payload = _bodyJson(body);
+    final result = await _client.request(
+      operation.method,
+      operation.resolvePath(pathParameters),
+      body: payload,
+      query: query.isEmpty ? null : query,
+    );
+    return decode(result);
+  }
+
+  Future<void> executeNoContent(
+    String operationId, {
+    Map<String, String> pathParameters = const {},
+    Map<String, String> query = const {},
+    Object? body,
+  }) async {
+    final operation = _operation(operationId);
+    operation.validate(pathParameters: pathParameters, query: query, body: body);
+    await _client.request(
+      operation.method,
+      operation.resolvePath(pathParameters),
+      body: _bodyJson(body),
+      query: query.isEmpty ? null : query,
+    );
+  }
+
+  ApiOperation _operation(String id) => apiV1Operations[id] ??
+      (throw ArgumentError.value(id, 'operationId', 'Unknown OpenAPI operation'));
+
+  Map<String, Object?>? _bodyJson(Object? body) {
+    if (body == null) return null;
+    if (body is ApiJsonModel) return body.toJson();
+    if (body is Map) return _apiMapObject(body);
+    throw ArgumentError.value(body, 'body', 'Expected an API model or JSON object');
+  }
+}
+
+Map<String, Object?> _apiMapObject(Map value) {
+  final result = <String, Object?>{};
+  for (final entry in value.entries) {
+    if (entry.key is! String) throw ArgumentError.value(entry.key, 'body', 'Expected string object keys');
+    result[entry.key as String] = entry.value;
+  }
+  return result;
+}

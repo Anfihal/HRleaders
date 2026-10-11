@@ -1,0 +1,561 @@
+{
+  "repository": {
+    "name": "hr-lzt-2026",
+    "path": "/tmp/gh-issue-solver-1791717643771"
+  },
+  "files": {
+    "total": 668,
+    "by_extension": [
+      {
+        "extension": ".py",
+        "count": 117
+      },
+      {
+        "extension": ".dart",
+        "count": 103
+      },
+      {
+        "extension": ".html",
+        "count": 77
+      },
+      {
+        "extension": ".png",
+        "count": 77
+      },
+      {
+        "extension": ".webp",
+        "count": 60
+      },
+      {
+        "extension": ".ts",
+        "count": 54
+      },
+      {
+        "extension": ".vue",
+        "count": 50
+      },
+      {
+        "extension": ".md",
+        "count": 21
+      },
+      {
+        "extension": ".json",
+        "count": 14
+      },
+      {
+        "extension": "[no extension]",
+        "count": 11
+      },
+      {
+        "extension": ".mjs",
+        "count": 9
+      },
+      {
+        "extension": ".js",
+        "count": 8
+      },
+      {
+        "extension": ".xml",
+        "count": 7
+      },
+      {
+        "extension": ".css",
+        "count": 5
+      },
+      {
+        "extension": ".svg",
+        "count": 5
+      },
+      {
+        "extension": ".yaml",
+        "count": 5
+      },
+      {
+        "extension": ".plist",
+        "count": 4
+      },
+      {
+        "extension": ".example",
+        "count": 3
+      },
+      {
+        "extension": ".kts",
+        "count": 3
+      },
+      {
+        "extension": ".swift",
+        "count": 3
+      },
+      {
+        "extension": ".arb",
+        "count": 2
+      },
+      {
+        "extension": ".properties",
+        "count": 2
+      },
+      {
+        "extension": ".sh",
+        "count": 2
+      },
+      {
+        "extension": ".storyboard",
+        "count": 2
+      },
+      {
+        "extension": ".ttf",
+        "count": 2
+      },
+      {
+        "extension": ".txt",
+        "count": 2
+      },
+      {
+        "extension": ".xcconfig",
+        "count": 2
+      },
+      {
+        "extension": ".xcsettings",
+        "count": 2
+      },
+      {
+        "extension": ".xcworkspacedata",
+        "count": 2
+      },
+      {
+        "extension": ".yml",
+        "count": 2
+      },
+      {
+        "extension": ".conf",
+        "count": 1
+      },
+      {
+        "extension": ".h",
+        "count": 1
+      },
+      {
+        "extension": ".ini",
+        "count": 1
+      },
+      {
+        "extension": ".kt",
+        "count": 1
+      },
+      {
+        "extension": ".lock",
+        "count": 1
+      },
+      {
+        "extension": ".mako",
+        "count": 1
+      },
+      {
+        "extension": ".pbxproj",
+        "count": 1
+      },
+      {
+        "extension": ".pdf",
+        "count": 1
+      },
+      {
+        "extension": ".scss",
+        "count": 1
+      },
+      {
+        "extension": ".template",
+        "count": 1
+      },
+      {
+        "extension": ".toml",
+        "count": 1
+      },
+      {
+        "extension": ".xcscheme",
+        "count": 1
+      }
+    ]
+  },
+  "git": {
+    "commits": 50,
+    "last_commit_date": "2026-10-11T11:20:47+00:00",
+    "branches": [
+      "issue-8-85de8c9fb9b0",
+      "main",
+      "origin/feature/assessment-testing",
+      "origin/issue-1-22d21e2306ec",
+      "origin/issue-3-f5781d3c36f5",
+      "origin/issue-5-02894161f458",
+      "origin/issue-5-4d22614471f7",
+      "origin/issue-8-85de8c9fb9b0",
+      "origin/issue-8-f96446cd3c70",
+      "origin/issue-9-4bf9b9cb4d74",
+      "origin/main"
+    ],
+    "tags": []
+  },
+  "contributors": [
+    {
+      "name": "konard",
+      "email": "drakonard@gmail.com",
+      "commits": 38
+    },
+    {
+      "name": "leaderstat",
+      "email": "leaderstat@vk.com",
+      "commits": 8
+    },
+    {
+      "name": "GuruProger",
+      "email": "progerguru@gmail.com",
+      "commits": 4
+    },
+    {
+      "name": "Anfi",
+      "email": "153830736+Anfihal@users.noreply.github.com",
+      "commits": 3
+    }
+  ],
+  "hot_files": [
+    {
+      "path": ".gitkeep",
+      "mentions": 12
+    },
+    {
+      "path": "README.md",
+      "mentions": 8
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "mentions": 6
+    },
+    {
+      "path": ".gitignore",
+      "mentions": 4
+    },
+    {
+      "path": "back-end/pyproject.toml",
+      "mentions": 4
+    },
+    {
+      "path": "back-end/tests/integration/test_api_recruiting.py",
+      "mentions": 4
+    },
+    {
+      "path": "experiments/issue-9/plan.md",
+      "mentions": 4
+    },
+    {
+      "path": ".env.example",
+      "mentions": 3
+    },
+    {
+      "path": "back-end/.env.example",
+      "mentions": 3
+    },
+    {
+      "path": "back-end/README.md",
+      "mentions": 3
+    }
+  ],
+  "technology": {
+    "languages": [
+      "C",
+      "CSS",
+      "Dart",
+      "HTML",
+      "JavaScript",
+      "Python",
+      "SCSS",
+      "TypeScript",
+      "Vue"
+    ],
+    "frameworks": [
+      "@nuxt/ui",
+      "fastapi",
+      "vue"
+    ],
+    "tools": [
+      "@playwright/test",
+      "Docker",
+      "GitHub Actions",
+      "alembic",
+      "eslint",
+      "mypy",
+      "nats-py",
+      "pinia",
+      "psycopg",
+      "pydantic",
+      "pytest",
+      "ruff",
+      "sass",
+      "sqlalchemy",
+      "tailwindcss",
+      "typescript",
+      "uvicorn",
+      "vite",
+      "vitest",
+      "vue-router"
+    ]
+  },
+  "structure": {
+    "directories": [
+      ".github",
+      ".github/workflows",
+      "back-end",
+      "back-end/app",
+      "back-end/app/analytics",
+      "back-end/app/fsp",
+      "back-end/app/hiring",
+      "back-end/app/identity",
+      "back-end/app/recruiting",
+      "back-end/app/seed",
+      "back-end/app/shared",
+      "back-end/app/talent",
+      "back-end/migrations",
+      "back-end/migrations/versions",
+      "back-end/mock_fsp",
+      "back-end/mock_fsp/data",
+      "back-end/tests",
+      "back-end/tests/e2e",
+      "back-end/tests/integration",
+      "back-end/tests/unit",
+      "docs",
+      "docs/presentation",
+      "docs/presentation/snapshot",
+      "docs/screenshots",
+      "examples",
+      "experiments",
+      "experiments/issue-9",
+      "figma",
+      "figma/assets",
+      "figma/assets/avatars",
+      "figma/assets/styles",
+      "figma/screens",
+      "figma/screens/avatar-empty",
+      "figma/screens/avatar-error",
+      "figma/screens/avatar-library",
+      "figma/screens/avatar-photo-selected",
+      "figma/screens/avatar-photo-selected-mobile",
+      "figma/screens/avatar-processing",
+      "figma/screens/avatar-ready",
+      "figma/screens/avatar-saved",
+      "figma/screens/avatar-uploading",
+      "figma/screens/avatars-empty",
+      "figma/screens/dashboard",
+      "figma/screens/dashboard-empty",
+      "figma/screens/employer-analytics",
+      "figma/screens/employer-candidate-detail",
+      "figma/screens/employer-candidates",
+      "figma/screens/employer-offers",
+      "figma/screens/employer-overview",
+      "figma/screens/employer-vacancies",
+      "figma/screens/interview-create",
+      "figma/screens/interview-create-empty",
+      "figma/screens/interview-result",
+      "figma/screens/interview-result-mobile",
+      "figma/screens/room-active",
+      "figma/screens/room-active-mobile",
+      "figma/screens/room-ai-speaking",
+      "figma/screens/room-candidate-speaking",
+      "figma/screens/room-completed",
+      "figma/screens/room-connecting",
+      "figma/screens/room-device-settings",
+      "figma/screens/room-error",
+      "figma/screens/room-hr-invitation",
+      "figma/screens/room-preparing",
+      "figma/screens/room-ready",
+      "figma/screens/room-reconnecting",
+      "figma/screens/room-thinking",
+      "figma/screens/scenario-editor-1",
+      "figma/screens/scenario-editor-2",
+      "figma/screens/scenario-editor-3",
+      "figma/screens/scenario-editor-4",
+      "figma/screens/scenario-editor-5",
+      "figma/screens/scenario-editor-6",
+      "figma/screens/scenario-library",
+      "figma/screens/scenario-new",
+      "figma/screens/scenario-new-mobile",
+      "figma/screens/scenario-preview",
+      "figma/screens/scenarios-empty",
+      "figma/screens/settings-1",
+      "figma/screens/settings-2",
+      "figma/screens/settings-3",
+      "figma/screens/settings-4",
+      "figma/screens/settings-5",
+      "figma/screens/settings-6",
+      "figma/screens/settings-default",
+      "figma/screens/settings-default-mobile",
+      "figma/screens/settings-editing",
+      "figma/screens/settings-load-error",
+      "figma/screens/settings-loading",
+      "figma/screens/settings-saved",
+      "figma/screens/settings-saving",
+      "figma/screens/settings-validation-error",
+      "flutter-app",
+      "flutter-app/android",
+      "flutter-app/android/app",
+      "flutter-app/android/app/src",
+      "flutter-app/android/app/src/debug",
+      "flutter-app/android/app/src/main",
+      "flutter-app/android/app/src/main/kotlin",
+      "flutter-app/android/app/src/main/kotlin/ru",
+      "flutter-app/android/app/src/main/kotlin/ru/hrleaders",
+      "flutter-app/android/app/src/main/kotlin/ru/hrleaders/hrleaders",
+      "flutter-app/android/app/src/main/res",
+      "flutter-app/android/app/src/main/res/drawable",
+      "flutter-app/android/app/src/main/res/drawable-v21",
+      "flutter-app/android/app/src/main/res/mipmap-hdpi",
+      "flutter-app/android/app/src/main/res/mipmap-mdpi",
+      "flutter-app/android/app/src/main/res/mipmap-xhdpi",
+      "flutter-app/android/app/src/main/res/mipmap-xxhdpi",
+      "flutter-app/android/app/src/main/res/mipmap-xxxhdpi",
+      "flutter-app/android/app/src/main/res/values",
+      "flutter-app/android/app/src/main/res/values-night",
+      "flutter-app/android/app/src/profile",
+      "flutter-app/android/gradle",
+      "flutter-app/android/gradle/wrapper",
+      "flutter-app/assets",
+      "flutter-app/assets/fonts",
+      "flutter-app/assets/maps",
+      "flutter-app/deploy",
+      "flutter-app/ios",
+      "flutter-app/ios/Flutter",
+      "flutter-app/ios/Runner",
+      "flutter-app/ios/Runner.xcodeproj",
+      "flutter-app/ios/Runner.xcodeproj/project.xcworkspace",
+      "flutter-app/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata",
+      "flutter-app/ios/Runner.xcodeproj/xcshareddata",
+      "flutter-app/ios/Runner.xcodeproj/xcshareddata/xcschemes",
+      "flutter-app/ios/Runner.xcworkspace",
+      "flutter-app/ios/Runner.xcworkspace/xcshareddata",
+      "flutter-app/ios/Runner/Assets.xcassets",
+      "flutter-app/ios/Runner/Assets.xcassets/AppIcon.appiconset",
+      "flutter-app/ios/Runner/Assets.xcassets/LaunchImage.imageset",
+      "flutter-app/ios/Runner/Base.lproj",
+      "flutter-app/ios/RunnerTests",
+      "flutter-app/lib",
+      "flutter-app/lib/core",
+      "flutter-app/lib/core/components",
+      "flutter-app/lib/core/di",
+      "flutter-app/lib/core/domain",
+      "flutter-app/lib/core/error",
+      "flutter-app/lib/core/localization",
+      "flutter-app/lib/core/localization/arb",
+      "flutter-app/lib/core/localization/generated",
+      "flutter-app/lib/core/network",
+      "flutter-app/lib/core/presentation",
+      "flutter-app/lib/core/routing",
+      "flutter-app/lib/core/security",
+      "flutter-app/lib/core/theme",
+      "flutter-app/lib/features",
+      "flutter-app/lib/features/admin",
+      "flutter-app/lib/features/admin/application",
+      "flutter-app/lib/features/admin/data",
+      "flutter-app/lib/features/admin/domain",
+      "flutter-app/lib/features/admin/presentation",
+      "flutter-app/lib/features/analytics",
+      "flutter-app/lib/features/analytics/application",
+      "flutter-app/lib/features/analytics/data",
+      "flutter-app/lib/features/analytics/domain",
+      "flutter-app/lib/features/analytics/presentation",
+      "flutter-app/lib/features/auth",
+      "flutter-app/lib/features/auth/application",
+      "flutter-app/lib/features/auth/data",
+      "flutter-app/lib/features/auth/domain",
+      "flutter-app/lib/features/auth/presentation",
+      "flutter-app/lib/features/candidates",
+      "flutter-app/lib/features/candidates/application",
+      "flutter-app/lib/features/candidates/data",
+      "flutter-app/lib/features/candidates/domain",
+      "flutter-app/lib/features/candidates/presentation",
+      "flutter-app/lib/features/employers",
+      "flutter-app/lib/features/employers/presentation",
+      "flutter-app/lib/features/hiring",
+      "flutter-app/lib/features/hiring/application",
+      "flutter-app/lib/features/hiring/data",
+      "flutter-app/lib/features/hiring/domain",
+      "flutter-app/lib/features/hiring/presentation",
+      "flutter-app/lib/features/landing",
+      "flutter-app/lib/features/landing/presentation",
+      "flutter-app/lib/features/messaging",
+      "flutter-app/lib/features/messaging/application",
+      "flutter-app/lib/features/messaging/data",
+      "flutter-app/lib/features/messaging/domain",
+      "flutter-app/lib/features/messaging/presentation",
+      "flutter-app/lib/features/security",
+      "flutter-app/lib/features/security/application",
+      "flutter-app/lib/features/security/data",
+      "flutter-app/lib/features/security/domain",
+      "flutter-app/lib/features/security/presentation",
+      "flutter-app/test",
+      "flutter-app/web",
+      "flutter-app/web/icons",
+      "front-end",
+      "front-end/deploy",
+      "front-end/public",
+      "front-end/sources",
+      "front-end/sources/assets",
+      "front-end/sources/screens",
+      "front-end/src",
+      "front-end/src/api",
+      "front-end/src/assets",
+      "front-end/src/components",
+      "front-end/src/components/charts",
+      "front-end/src/components/common",
+      "front-end/src/components/hiring",
+      "front-end/src/components/layout",
+      "front-end/src/components/recruiting",
+      "front-end/src/components/talent",
+      "front-end/src/composables",
+      "front-end/src/layouts",
+      "front-end/src/pages",
+      "front-end/src/pages/auth",
+      "front-end/src/pages/candidate",
+      "front-end/src/pages/employer",
+      "front-end/src/pages/recruiting",
+      "front-end/src/router",
+      "front-end/src/services",
+      "front-end/src/stores",
+      "front-end/src/styles",
+      "front-end/src/types",
+      "front-end/src/utils",
+      "front-end/tests",
+      "front-end/tests/e2e",
+      "front-end/tests/unit",
+      "hr-app",
+      "hr-app/lib",
+      "hr-app/lib/screens",
+      "hr-app/lib/theme",
+      "templates",
+      "tests",
+      "tools"
+    ],
+    "has_readme": true,
+    "has_tests": true,
+    "has_ci": true,
+    "has_docker": true,
+    "has_frontend": true,
+    "has_backend": true,
+    "has_documentation": true
+  },
+  "provenance": {
+    "head": "921ba2f8b770e7a29fc057bfcd6433892087493e",
+    "index_tree": "6e7bcdde196a2b1dd99ffd6702522140bc932425",
+    "file_scope": "Git index, excluding .git/node_modules/dist/build/coverage directories",
+    "history_scope": "HEAD (contributors: all locally available refs, mailmap applied)",
+    "branch_scope": "local and fetched remote refs, excluding symbolic refs",
+    "hot_files_scope": "HEAD history; name-only mentions, no rename detection; includes deletions",
+    "technology_scope": "tracked index manifests and recognized extensions/dependencies; declarations, not runtime verification",
+    "manifests": [
+      {
+        "path": "back-end/pyproject.toml",
+        "git_blob": "495d156713da8bd855b2395e76b307359add9545"
+      },
+      {
+        "path": "front-end/package.json",
+        "git_blob": "d3a16bb64c0926849d3c70673235e17a4fef7beb"
+      }
+    ]
+  }
+}

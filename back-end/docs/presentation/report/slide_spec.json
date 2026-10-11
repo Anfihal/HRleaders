@@ -1,0 +1,357 @@
+{
+  "slides": [
+    {
+      "purpose": "\u0427\u0442\u043e \u044d\u0442\u043e \u0437\u0430 \u043f\u0440\u043e\u0435\u043a\u0442?",
+      "source_data": [
+        "presentation_name/repository.name",
+        "README.md",
+        "git.last_commit_date"
+      ],
+      "edits": {
+        "region:subtitle": [
+          {
+            "text": "HRleaders",
+            "style": "title"
+          },
+          {
+            "text": "\u041e\u0442\u0440\u0430\u0441\u043b\u0435\u0432\u043e\u0439 \u0430\u0433\u0440\u0435\u0433\u0430\u0442\u043e\u0440 \u0438\u0442-\u0432\u0430\u043a\u0430\u043d\u0441\u0438\u0439 \u0441 \u043f\u043e\u0434\u0442\u0432\u0435\u0440\u0436\u0434\u0430\u0435\u043c\u044b\u043c \u043f\u0440\u043e\u0444\u0438\u043b\u0435\u043c",
+            "style": "subtitle"
+          },
+          {
+            "text": "\u041f\u043e\u0441\u043b\u0435\u0434\u043d\u0438\u0439 \u043a\u043e\u043c\u043c\u0438\u0442: 11.10.2026",
+            "style": "date"
+          }
+        ]
+      },
+      "slide_number": 1,
+      "template_slide": 1,
+      "frozen": false
+    },
+    {
+      "purpose": "\u041a\u0430\u043a\u043e\u0432 \u043c\u0430\u0441\u0448\u0442\u0430\u0431 \u043f\u0440\u043e\u0435\u043a\u0442\u0430?",
+      "source_data": [
+        "files.total",
+        "git.commits",
+        "contributors",
+        "files.by_extension",
+        "git.branches"
+      ],
+      "edits": {
+        "\u0412\u0412\u041e\u0414\u041d\u042b\u0415": [
+          "\u041e\u0411\u0417\u041e\u0420"
+        ],
+        "\u041f\u0440\u0438\u0432\u0435\u0442, \u0443\u0447\u0430\u0441\u0442\u043d\u0438\u043a": [
+          "\u041f\u0440\u043e\u0435\u043a\u0442 \u0432 \u0446\u0438\u0444\u0440\u0430\u0445"
+        ],
+        "\u042d\u0442\u0430 \u043f\u0440\u0435\u0437\u0435\u043d\u0442\u0430\u0446\u0438\u044f": [
+          "668 \u0444\u0430\u0439\u043b\u043e\u0432 \u043f\u043e\u0434 \u043a\u043e\u043d\u0442\u0440\u043e\u043b\u0435\u043c Git",
+          "50 \u043a\u043e\u043c\u043c\u0438\u0442\u043e\u0432 \u0432 \u0438\u0441\u0442\u043e\u0440\u0438\u0438 HEAD",
+          "4 \u0443\u0447\u0430\u0441\u0442\u043d\u0438\u043a\u0430 \u043f\u043e \u0432\u0441\u0435\u043c \u0432\u0435\u0442\u043a\u0430\u043c"
+        ],
+        "\u041c\u043e\u0436\u0435\u0448\u044c \u0441\u043c\u0435\u043b\u043e": [
+          "42 \u0442\u0438\u043f\u0430 \u0444\u0430\u0439\u043b\u043e\u0432 \u043f\u043e \u0440\u0430\u0441\u0448\u0438\u0440\u0435\u043d\u0438\u044f\u043c",
+          "11 \u0432\u0435\u0442\u043e\u043a, \u043b\u043e\u043a\u0430\u043b\u044c\u043d\u044b\u0435 \u0438 \u0443\u0434\u0430\u043b\u0451\u043d\u043d\u044b\u0435"
+        ],
+        "\u0423\u0434\u0430\u0447\u0438!": [
+          ""
+        ]
+      },
+      "slide_number": 2,
+      "template_slide": 2,
+      "frozen": false
+    },
+    {
+      "purpose": "\u0427\u0442\u043e \u0431\u0443\u0434\u0435\u0442 \u043f\u043e\u043a\u0430\u0437\u0430\u043d\u043e?",
+      "source_data": [
+        "slide specification"
+      ],
+      "edits": {
+        "\u0422\u0438\u0442\u0443\u043b\u044c\u043d\u044b\u0439 \u0441\u043b\u0430\u0439\u0434": [
+          "\u041f\u0440\u043e\u0435\u043a\u0442"
+        ],
+        "\u043d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u043a\u043e\u043c\u0430\u043d\u0434\u044b": [
+          "\u043d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u0438 \u0434\u0430\u0442\u0430"
+        ],
+        "\u043d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u0437\u0430\u0434\u0430\u0447\u0438": [
+          "\u0446\u0438\u0444\u0440\u044b Git"
+        ],
+        "\u043b\u043e\u0433\u043e\u0442\u0438\u043f / \u043b\u043e\u0433\u043e\u0442\u0438\u043f\u044b": [
+          "\u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0430",
+          "\u043f\u0440\u0435\u0437\u0435\u043d\u0442\u0430\u0446\u0438\u0438"
+        ],
+        "\u0418\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u0439 \u0434\u043b\u044f \u043e\u0444\u043e\u0440\u043c\u043b\u0435\u043d\u0438\u044f\n\u0441\u043b\u0430\u0439\u0434 7": [
+          "\u0421\u043b\u0430\u0439\u0434\u044b 1\u20134"
+        ],
+        "\u0421\u043b\u0430\u0439\u0434\u044b \u043f\u0440\u043e \u0437\u0430\u0434\u0430\u0447\u0443": [
+          "\u041a\u043e\u0434\u043e\u0432\u0430\u044f \u0431\u0430\u0437\u0430"
+        ],
+        "\u043e\u043f\u0438\u0441\u0430\u043d\u0438\u0435 \u0441\u0443\u0442\u0438 \u0438": [
+          "\u0441\u043e\u0441\u0442\u0430\u0432 \u043f\u043e",
+          "\u0440\u0430\u0441\u0448\u0438\u0440\u0435\u043d\u0438\u044f\u043c"
+        ],
+        "\u043f\u043b\u0430\u043d \u043f\u043e \u0434\u0430\u043b\u044c\u043d\u0435\u0439\u0448\u0435\u043c\u0443": [
+          "\u0447\u0438\u0441\u043b\u043e \u043a\u043e\u043c\u043c\u0438\u0442\u043e\u0432"
+        ],
+        "\u0424\u0418\u041e \u0438 \u043a\u043e\u043d\u0442\u0430\u043a\u0442\u043d\u044b\u0435": [
+          "\u0447\u0438\u0441\u043b\u043e \u0432\u0435\u0442\u043e\u043a"
+        ],
+        "\u0440\u043e\u043b\u0438 \u0432 \u043a\u043e\u043c\u0430\u043d\u0434\u0435": [
+          "\u0434\u0430\u0442\u0430 \u043a\u043e\u043c\u043c\u0438\u0442\u0430"
+        ],
+        "\u0441\u043b\u043e\u0436\u043d\u043e\u0441\u0442\u0438 \u0438 \u0432\u044b\u0437\u043e\u0432\u044b": [
+          "\u0441\u0430\u043c\u044b\u0435 \u0438\u0437\u043c\u0435\u043d\u044f\u0435\u043c\u044b\u0435",
+          "\u0444\u0430\u0439\u043b\u044b"
+        ],
+        "\u0418\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u0439 \u0434\u043b\u044f \u043e\u0444\u043e\u0440\u043c\u043b\u0435\u043d\u0438\u044f\n\u0441\u043b\u0430\u0439\u0434\u044b 8-11": [
+          "\u0421\u043b\u0430\u0439\u0434\u044b 5\u20136"
+        ],
+        "\u041e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u044b\u0439 \u0431\u043b\u043e\u043a#1": [
+          "\u0418\u0441\u0442\u043e\u0447\u043d\u0438\u043a: Git"
+        ],
+        "\u041e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u044b\u0439 \u0431\u043b\u043e\u043a#2": [
+          "\u0418\u0441\u0442\u043e\u0447\u043d\u0438\u043a: Git"
+        ],
+        "\u041f\u0440\u0435\u0437\u0435\u043d\u0442\u0430\u0446\u0438\u044f": [
+          "\u0428\u0430\u0431\u043b\u043e\u043d \u0424\u0421\u041f"
+        ],
+        "\u0440\u0435\u043a\u043e\u043c\u0435\u043d\u0434\u0443\u0435\u043c\u0430\u044f": [
+          "\u043e \u043a\u043e\u043c\u0430\u043d\u0434\u0435",
+          "\u0438 \u0440\u0435\u0448\u0435\u043d\u0438\u0438"
+        ],
+        "\u044d\u0442\u043e\u0442 \u0431\u043b\u043e\u043a \u0434\u043e\u043b\u0436\u0435\u043d \u0431\u044b\u0442\u044c": [
+          "\u0441\u043b\u0430\u0439\u0434\u044b \u0448\u0430\u0431\u043b\u043e\u043d\u0430",
+          "\u0431\u0435\u0437 \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439"
+        ],
+        "\u0418\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u0439 \u0434\u043b\u044f \u043e\u0444\u043e\u0440\u043c\u043b\u0435\u043d\u0438\u044f\n\u0448\u0430\u0431\u043b\u043e\u043d\u044b": [
+          "\u0421\u043b\u0430\u0439\u0434\u044b 7\u201311"
+        ]
+      },
+      "slide_number": 3,
+      "template_slide": 3,
+      "frozen": false
+    },
+    {
+      "purpose": "\u041a\u0430\u043a \u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0438\u0440\u043e\u0432\u0430\u043d\u0430 \u043f\u0440\u0435\u0437\u0435\u043d\u0442\u0430\u0446\u0438\u044f?",
+      "source_data": [
+        "template slide 4 (six blocks kept verbatim)"
+      ],
+      "edits": {},
+      "slide_number": 4,
+      "template_slide": 4,
+      "frozen": false
+    },
+    {
+      "purpose": "\u0418\u0437 \u0447\u0435\u0433\u043e \u0441\u043e\u0441\u0442\u043e\u0438\u0442 \u043a\u043e\u0434\u043e\u0432\u0430\u044f \u0431\u0430\u0437\u0430?",
+      "source_data": [
+        "files.by_extension"
+      ],
+      "edits": {
+        "\u041e\u0424\u041e\u0420\u041c\u041b\u0415\u041d\u0418\u0415": [
+          "\u0421\u041e\u0421\u0422\u0410\u0412 \u041a\u041e\u0414\u0410"
+        ],
+        "\u0428\u0420\u0418\u0424\u0422:": [
+          "\u0424\u0410\u0419\u041b\u042b:"
+        ],
+        "Montserrat:": [
+          "668 \u0444\u0430\u0439\u043b\u043e\u0432 \u043f\u043e\u0434 \u043a\u043e\u043d\u0442\u0440\u043e\u043b\u0435\u043c Git, 42 \u0442\u0438\u043f\u0430 \u0440\u0430\u0441\u0448\u0438\u0440\u0435\u043d\u0438\u0439"
+        ],
+        "\u0426\u0412\u0415\u0422\u0410:": [
+          "\u0422\u0418\u041f\u042b:"
+        ],
+        "\u0430\u043a\u0446\u0435\u043d\u0442\u043d\u044b\u0435": [
+          "\u0442\u043e\u043f-6"
+        ],
+        "\u0431\u0430\u0437\u043e\u0432\u044b\u0435": [
+          "\u043e\u0441\u0442\u0430\u043b\u044c\u043d\u044b\u0435: \u0438\u0441\u0442\u043e\u0447\u043d\u0438\u043a git ls-files"
+        ],
+        "HEX #FF0053": [
+          ""
+        ],
+        "HEX #520978": [
+          ".ts \u00b7 54"
+        ],
+        "HEX #FFFFFF": [
+          ""
+        ],
+        "region:6": [
+          {
+            "text": "36 \u0442\u0438\u043f\u043e\u0432",
+            "style": "chip_light"
+          }
+        ],
+        "region:7": [
+          {
+            "text": "180 \u0444\u0430\u0439\u043b\u043e\u0432",
+            "style": "chip"
+          }
+        ],
+        "region:1": [
+          {
+            "text": ".py \u00b7 117",
+            "style": "chip"
+          }
+        ],
+        "region:2": [
+          {
+            "text": ".dart \u00b7 103",
+            "style": "chip_light"
+          }
+        ],
+        "region:3": [
+          {
+            "text": ".html \u00b7 77",
+            "style": "chip"
+          }
+        ],
+        "region:4": [
+          {
+            "text": ".png \u00b7 77",
+            "style": "chip"
+          }
+        ],
+        "region:5": [
+          {
+            "text": ".webp \u00b7 60",
+            "style": "chip"
+          }
+        ]
+      },
+      "slide_number": 5,
+      "template_slide": 5,
+      "frozen": false
+    },
+    {
+      "purpose": "\u041d\u0430\u0441\u043a\u043e\u043b\u044c\u043a\u043e \u0430\u043a\u0442\u0438\u0432\u043d\u043e \u0440\u0430\u0437\u0432\u0438\u0432\u0430\u0435\u0442\u0441\u044f \u043f\u0440\u043e\u0435\u043a\u0442?",
+      "source_data": [
+        "git.commits",
+        "git.branches",
+        "git.last_commit_date",
+        "hot_files"
+      ],
+      "edits": {
+        "region:1": [
+          {
+            "text": "\u0410\u041a\u0422\u0418\u0412\u041d\u041e\u0421\u0422\u042c",
+            "style": "heading"
+          }
+        ],
+        "20": [
+          "6"
+        ],
+        "region:7": [
+          {
+            "text": "50",
+            "style": "number"
+          },
+          {
+            "text": "\u043a\u043e\u043c\u043c\u0438\u0442\u043e\u0432 \u0432 \u0438\u0441\u0442\u043e\u0440\u0438\u0438 HEAD",
+            "style": "caption"
+          },
+          {
+            "text": "11",
+            "style": "number"
+          },
+          {
+            "text": "\u0432\u0435\u0442\u043e\u043a: \u043b\u043e\u043a\u0430\u043b\u044c\u043d\u044b\u0435 \u0438 \u0443\u0434\u0430\u043b\u0451\u043d\u043d\u044b\u0435",
+            "style": "caption"
+          },
+          {
+            "text": "11.10.2026",
+            "style": "number"
+          },
+          {
+            "text": "\u0434\u0430\u0442\u0430 \u043f\u043e\u0441\u043b\u0435\u0434\u043d\u0435\u0433\u043e \u043a\u043e\u043c\u043c\u0438\u0442\u0430",
+            "style": "caption"
+          },
+          {
+            "text": "\u0421\u043f\u0440\u0430\u0432\u0430: \u0442\u043e\u043f-5 \u0444\u0430\u0439\u043b\u043e\u0432 \u043f\u043e \u0447\u0438\u0441\u043b\u0443 \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439",
+            "style": "note"
+          }
+        ],
+        "region:2": [
+          {
+            "text": ".gitkeep \u2014 12",
+            "style": "row"
+          }
+        ],
+        "region:3": [
+          {
+            "text": "README.md \u2014 8",
+            "style": "row"
+          }
+        ],
+        "region:4": [
+          {
+            "text": ".github/workflows/ci.yml \u2014 6",
+            "style": "row"
+          }
+        ],
+        "region:5": [
+          {
+            "text": ".gitignore \u2014 4",
+            "style": "row"
+          }
+        ],
+        "region:6": [
+          {
+            "text": "back-end/pyproject.toml \u2014 4",
+            "style": "row"
+          }
+        ]
+      },
+      "slide_number": 6,
+      "template_slide": 20,
+      "frozen": false
+    },
+    {
+      "purpose": "\u0427\u0442\u043e \u043f\u0440\u0435\u0434\u0443\u0441\u043c\u043e\u0442\u0440\u0435\u043d\u043e \u0448\u0430\u0431\u043b\u043e\u043d\u043e\u043c \u0424\u0421\u041f.",
+      "source_data": [
+        "template"
+      ],
+      "edits": {},
+      "slide_number": 7,
+      "template_slide": 7,
+      "frozen": true
+    },
+    {
+      "purpose": "\u0427\u0442\u043e \u043f\u0440\u0435\u0434\u0443\u0441\u043c\u043e\u0442\u0440\u0435\u043d\u043e \u0448\u0430\u0431\u043b\u043e\u043d\u043e\u043c \u0424\u0421\u041f.",
+      "source_data": [
+        "template"
+      ],
+      "edits": {},
+      "slide_number": 8,
+      "template_slide": 8,
+      "frozen": true
+    },
+    {
+      "purpose": "\u0427\u0442\u043e \u043f\u0440\u0435\u0434\u0443\u0441\u043c\u043e\u0442\u0440\u0435\u043d\u043e \u0448\u0430\u0431\u043b\u043e\u043d\u043e\u043c \u0424\u0421\u041f.",
+      "source_data": [
+        "template"
+      ],
+      "edits": {},
+      "slide_number": 9,
+      "template_slide": 9,
+      "frozen": true
+    },
+    {
+      "purpose": "\u0427\u0442\u043e \u043f\u0440\u0435\u0434\u0443\u0441\u043c\u043e\u0442\u0440\u0435\u043d\u043e \u0448\u0430\u0431\u043b\u043e\u043d\u043e\u043c \u0424\u0421\u041f.",
+      "source_data": [
+        "template"
+      ],
+      "edits": {},
+      "slide_number": 10,
+      "template_slide": 10,
+      "frozen": true
+    },
+    {
+      "purpose": "\u0427\u0442\u043e \u043f\u0440\u0435\u0434\u0443\u0441\u043c\u043e\u0442\u0440\u0435\u043d\u043e \u0448\u0430\u0431\u043b\u043e\u043d\u043e\u043c \u0424\u0421\u041f.",
+      "source_data": [
+        "template"
+      ],
+      "edits": {},
+      "slide_number": 11,
+      "template_slide": 11,
+      "frozen": true
+    }
+  ]
+}

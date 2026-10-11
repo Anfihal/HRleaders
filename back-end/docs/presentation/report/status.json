@@ -1,0 +1,26 @@
+{
+  "status": "GENERATED",
+  "completed_stages": [
+    "data_extraction",
+    "template_inspection",
+    "slide_specification",
+    "assembly",
+    "structural_qa",
+    "visual_qa"
+  ],
+  "output": "docs/presentation/HRleaders.pptx",
+  "frozen_slides": [
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "structural_qa": "PASS",
+  "visual_qa": "PASS",
+  "warnings": [
+    "Frozen slides 7-11 keep the template text: team members, contacts and the solution description are not recorded in Git."
+  ],
+  "structural_errors": [],
+  "visual_errors": []
+}

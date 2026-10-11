@@ -1,0 +1,101 @@
+# Full local stack: PostgreSQL, NATS, API + worker, ФСП mock and front-end behind nginx.
+# Secrets come from the root .env (copy .env.example); nothing secret is written here.
+name: hrleaders
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-hr_platform}
+      POSTGRES_USER: ${POSTGRES_USER:-hr}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+  mock-fsp:
+    build: ./back-end
+    command: ["uvicorn", "mock_fsp.main:create_app", "--factory", "--host", "0.0.0.0", "--port", "8001"]
+    environment:
+      FSP_API_TOKEN: ${FSP_API_TOKEN:?set FSP_API_TOKEN in .env}
+
+  nats:
+    image: nats:2.12-alpine
+    command: ["--jetstream", "--store_dir", "/data", "--auth", "${NATS_TOKEN:?set NATS_TOKEN in .env}"]
+    volumes:
+      - nats-data:/data
+
+  backend:
+    build: ./back-end
+    # The image applies migrations before starting the API.
+    environment: &backend-env
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-hr}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-hr_platform}
+      JWT_SECRET: ${JWT_SECRET:?set JWT_SECRET in .env}
+      AUTH_COOKIE_SECURE: ${AUTH_COOKIE_SECURE:-true}
+      FSP_API_URL: http://mock-fsp:8001
+      FSP_API_TOKEN: ${FSP_API_TOKEN}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      RECRUITER_SECRETS: ${RECRUITER_SECRETS:-{}}
+      AVATAR_MAX_BYTES: ${AVATAR_MAX_BYTES:-5242880}
+      AVATAR_MAX_PIXELS: ${AVATAR_MAX_PIXELS:-16000000}
+      MEDIA_STORAGE_PATH: /app/.media
+      NATS_URL: nats://nats:4222
+      NATS_TOKEN: ${NATS_TOKEN}
+      RECRUITING_DEBUG: ${RECRUITING_DEBUG:-false}
+    volumes:
+      - media-data:/app/.media
+    depends_on:
+      db:
+        condition: service_healthy
+      mock-fsp:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health')"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+
+  worker:
+    build: ./back-end
+    command: ["python", "-m", "app.recruiting.run_worker"]
+    environment: *backend-env
+    volumes:
+      - media-data:/app/.media
+    depends_on:
+      backend:
+        condition: service_healthy
+      nats:
+        condition: service_started
+    restart: unless-stopped
+
+  # One-off: `docker compose run --rm seed` loads the demo data (idempotent).
+  seed:
+    build: ./back-end
+    command: ["python", "-m", "app.seed"]
+    environment:
+      <<: *backend-env
+      SEED_DEMO_PASSWORD: ${SEED_DEMO_PASSWORD:?set SEED_DEMO_PASSWORD in .env}
+    depends_on:
+      backend:
+        condition: service_healthy
+    profiles: ["seed"]
+
+  frontend:
+    build: ./front-end
+    environment:
+      BACKEND_URL: http://backend:8000
+      UPLOAD_MAX_BODY_SIZE: ${UPLOAD_MAX_BODY_SIZE:-8m}
+    ports:
+      - "${FRONTEND_PORT:-8080}:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+
+volumes:
+  db-data:
+  nats-data:
+  media-data:
