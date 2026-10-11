@@ -1,52 +1,47 @@
-# Miscellaneous
-*.class
-*.log
-*.pyc
-*.swp
-.DS_Store
-.atom/
-.build/
-.buildlog/
-.history
-.svn/
-.swiftpm/
-migrate_working_dir/
+# Secrets and local environment
+.env
+.env.*
+!.env.example
 
-# IntelliJ related
-*.iml
-*.ipr
-*.iws
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+*.db
+
+# Node
+node_modules/
+dist/
+coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
+
+# Editors / OS
 .idea/
+.vscode/
+.DS_Store
 
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
+# Local browser automation artefacts
+.playwright-mcp/
 
-# Flutter/Dart/Pub related
-**/doc/api/
-**/ios/Flutter/.last_build_id
+# Private object storage (never source assets)
+.media/
+
+# Flutter build products and local issue investigation logs
 .dart_tool/
+build/
 .flutter-plugins-dependencies
-.pub-cache/
-.pub/
-/build/
-/coverage/
-
-# Symbolication related
-app.*.symbols
-
-# Obfuscation related
-app.*.map.json
-
-# Android Studio will place build artifacts here
-/android/app/debug
-/android/app/profile
-/android/app/release
-
-# Widget Preview related
-.widget_preview/
-
-# Aider Studio (auto-added)
-REPO_MAP.md
-.aider/
+flutter-app/.packages
+flutter-app/android/local.properties
+flutter-app/android/.gradle/
+flutter-app/ios/Pods/
+flutter-app/ios/.symlinks/
+flutter-app/ios/Flutter/Generated.xcconfig
+flutter-app/ios/Flutter/flutter_export_environment.sh
+experiments/issue-9/logs/
+ci-logs/
